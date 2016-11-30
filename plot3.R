@@ -1,22 +1,12 @@
 
-#load the dataset, I used the twoDayDataSet
+#load the dataset, I call it twoDayDataSet
 
 if(! exists("twoDayDataSet")) {
   twoDayDataSet = loadTwoDayDataSetFromFull()
 }
 
 #this function encapsulates the base R graphics calls to make the desired figure
-makeFig1 <- function() {
-  hist(twoDayDataSet$Global_active_power,breaks=seq(0,8,0.5),col="red",
-       main="Global Active Power",ylab="Frequency",xlab="Global Active Power (kilowatts)")
-  return(TRUE)
-}
-makeFig2 <- function() {
-  plot(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="n",
-       main="",ylab="Global Active Power (kilowatts)",xlab="")
-  lines(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="l")
-  return(TRUE)
-}
+
 
 makeFig3 <- function() {
   plot(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,type="n",xlab="Energy Sub-Metering",

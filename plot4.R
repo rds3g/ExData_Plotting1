@@ -1,5 +1,5 @@
 
-#load the dataset, I used the twoDayDataSet
+#load the dataset, I call it twoDayDataSet
 
 if(! exists("twoDayDataSet")) {
   twoDayDataSet = loadTwoDayDataSetFromFull()
