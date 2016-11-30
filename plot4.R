@@ -81,6 +81,7 @@ makeSubFigTR <- function() {
 
 # now do all four subplots on one
 makeCombinedPlot <- function() {
+  par(mfrow=c(2,2))
   makeSubFigTL()
   makeSubFigTR()
   makeSubFigBL()
@@ -88,7 +89,7 @@ makeCombinedPlot <- function() {
 }
 
 
-par(mfrow=c(2,2))
+
 dev.set(2)  #set to screen
 result <- makeCombinedPlot()
 

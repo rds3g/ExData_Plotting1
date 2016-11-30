@@ -48,6 +48,7 @@ if(! exists("twoDayDataSet")) {
 
 #this function encapsulates the base R graphics calls to make the desired figure
 makeFig2 <- function() {
+  par(mfrow=c(1,1))
   plot(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="n",
        main="",ylab="Global Active Power (kilowatts)",xlab="")
   lines(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="l")

@@ -50,6 +50,7 @@ if(! exists("twoDayDataSet")) {
 
 #this function encapsulates the base R graphics calls to make the desired figure
 makeFig1 <- function() {
+  par(mfrow=c(1,1))
   hist(twoDayDataSet$Global_active_power,breaks=seq(0,8,0.5),col="red",
        main="Global Active Power",ylab="Frequency",xlab="Global Active Power (kilowatts)")
   return(TRUE)

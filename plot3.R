@@ -51,6 +51,7 @@ if(! exists("twoDayDataSet")) {
 
 
 makeFig3 <- function() {
+  par(mfrow=c(1,1))
   plot(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,type="n",xlab="Energy Sub-Metering",
        ylab="Energy sub metering")
   lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,col="black")
@@ -64,7 +65,7 @@ makeFig3 <- function() {
   return(TRUE)
 }
 
-par(mfrow=c(1,1))
+
 dev.set(2)  #set to screen
 result <- makeFig3()
 
