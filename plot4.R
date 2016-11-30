@@ -1,8 +1,10 @@
+library(dplyr)
+library(lubridate)
 
 ####################################################################
 # Helper Function to Load the Data
 ##################################################################
-library(dplyr)
+
 loadTwoDayDataSetFromFull <- function() {
   if(file.exists("twoDay.RData")) {
     load("twoDay.RData")
