@@ -1,36 +1,4 @@
 
-#load the dataset, I call it twoDayDataSet
-
-if(! exists("twoDayDataSet")) {
-  twoDayDataSet = loadTwoDayDataSetFromFull()
-}
-
-#this function encapsulates the base R graphics calls to make the desired figure
-makeFig1 <- function() {
-  hist(twoDayDataSet$Global_active_power,breaks=seq(0,8,0.5),col="red",
-       main="Global Active Power",ylab="Frequency",xlab="Global Active Power (kilowatts)")
-  return(TRUE)
-}
-makeFig2 <- function() {
-  plot(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="n",
-       main="",ylab="Global Active Power (kilowatts)",xlab="")
-  lines(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="l")
-  return(TRUE)
-}
-
-dev.set(2)  #set to screen
-result <- makeFig2()
-
-# now plot to the .png output file
-# open the graphics file
-pngFileOutput <- png(filename = "plot1.png",
-    width = 480, height = 480, units = "px", pointsize = 12,
-    bg = "white")
-
-result <- makeFig2()
-dev.off() # close the PNG file
-
-
 
 ####################################################################
 # Helper Function to Load the Data
@@ -68,3 +36,38 @@ loadTwoDayDataSetFromFull <- function() {
   
   return(twoDayDataSet)
 }
+#####################################################################
+
+#load the data
+
+if(! exists("twoDayDataSet")) {
+  twoDayDataSet = loadTwoDayDataSetFromFull()
+}
+
+#this function encapsulates the base R graphics calls to make the desired figure
+makeFig1 <- function() {
+  hist(twoDayDataSet$Global_active_power,breaks=seq(0,8,0.5),col="red",
+       main="Global Active Power",ylab="Frequency",xlab="Global Active Power (kilowatts)")
+  return(TRUE)
+}
+makeFig2 <- function() {
+  plot(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="n",
+       main="",ylab="Global Active Power (kilowatts)",xlab="")
+  lines(twoDayDataSet$dateTime, twoDayDataSet$Global_active_power, type="l")
+  return(TRUE)
+}
+
+par(mfrow=c(1,1))
+dev.set(2)  #set to screen
+result <- makeFig2()
+
+# now plot to the .png output file
+# open the graphics file
+pngFileOutput <- png(filename = "plot1.png",
+    width = 480, height = 480, units = "px", pointsize = 12,
+    bg = "white")
+
+result <- makeFig2()
+dev.off() # close the PNG file
+
+

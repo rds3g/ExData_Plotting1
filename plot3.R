@@ -1,42 +1,4 @@
 
-#load the dataset, I call it twoDayDataSet
-
-if(! exists("twoDayDataSet")) {
-  twoDayDataSet = loadTwoDayDataSetFromFull()
-}
-
-#this function encapsulates the base R graphics calls to make the desired figure
-
-
-makeFig3 <- function() {
-  plot(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,type="n",xlab="Energy Sub-Metering",
-       ylab="Energy sub metering")
-  lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,col="black")
-  lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_2,col="red")
-  lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_3,col="blue")
-  #lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,col="black")
-  legend("topright", 
-         c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col=c("black","red","blue"),
-         lty=1, lwd=1)
-  
-  return(TRUE)
-}
-
-
-dev.set(2)  #set to screen
-result <- makeFig3()
-
-# now plot to the .png output file
-# open the graphics file
-pngFileOutput <- png(filename = "plot3.png",
-    width = 480, height = 480, units = "px", pointsize = 12,
-    bg = "white")
-
-result <- makeFig3()
-dev.off() # close the PNG file
-
-
-
 ####################################################################
 # Helper Function to Load the Data
 ##################################################################
@@ -73,3 +35,40 @@ loadTwoDayDataSetFromFull <- function() {
   
   return(twoDayDataSet)
 }
+
+#load the dataset, I call it twoDayDataSet
+
+if(! exists("twoDayDataSet")) {
+  twoDayDataSet = loadTwoDayDataSetFromFull()
+}
+
+#this function encapsulates the base R graphics calls to make the desired figure
+
+
+makeFig3 <- function() {
+  plot(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,type="n",xlab="Energy Sub-Metering",
+       ylab="Energy sub metering")
+  lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,col="black")
+  lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_2,col="red")
+  lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_3,col="blue")
+  #lines(twoDayDataSet$dateTime,twoDayDataSet$Sub_metering_1,col="black")
+  legend("topright", 
+         c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col=c("black","red","blue"),
+         lty=1, lwd=1)
+  
+  return(TRUE)
+}
+
+par(mfrow=c(1,1))
+dev.set(2)  #set to screen
+result <- makeFig3()
+
+# now plot to the .png output file
+# open the graphics file
+pngFileOutput <- png(filename = "plot3.png",
+    width = 480, height = 480, units = "px", pointsize = 12,
+    bg = "white")
+
+result <- makeFig3()
+dev.off() # close the PNG file
+

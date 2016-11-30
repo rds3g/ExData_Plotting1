@@ -1,31 +1,3 @@
-
-#load the dataset, I call it twoDayDataSet
-
-if(! exists("twoDayDataSet")) {
-  twoDayDataSet = loadTwoDayDataSetFromFull()
-}
-
-#this function encapsulates the base R graphics calls to make the desired figure
-makeFig1 <- function() {
-  hist(twoDayDataSet$Global_active_power,breaks=seq(0,8,0.5),col="red",
-       main="Global Active Power",ylab="Frequency",xlab="Global Active Power (kilowatts)")
-  return(TRUE)
-}
-
-dev.set(2)  #set to screen
-result <- makeHistogramFig1()
-
-# now plot to the .png output file
-# open the graphics file
-pngFileOutput <- png(filename = "plot1.png",
-    width = 480, height = 480, units = "px", pointsize = 12,
-    bg = "white")
-
-result <- makeHistogramFig1()
-dev.off() # close the PNG file
-
-
-
 ####################################################################
 # Helper Function to Load the Data
 ##################################################################
@@ -62,3 +34,33 @@ loadTwoDayDataSetFromFull <- function() {
   
   return(twoDayDataSet)
 }
+
+
+#load the dataset, I call it twoDayDataSet
+
+if(! exists("twoDayDataSet")) {
+  twoDayDataSet = loadTwoDayDataSetFromFull()
+}
+
+#this function encapsulates the base R graphics calls to make the desired figure
+makeFig1 <- function() {
+  hist(twoDayDataSet$Global_active_power,breaks=seq(0,8,0.5),col="red",
+       main="Global Active Power",ylab="Frequency",xlab="Global Active Power (kilowatts)")
+  return(TRUE)
+}
+
+
+dev.set(2)  #set to screen
+par(mfrow=c(1,1))
+result <- makeFig1()
+
+# now plot to the .png output file
+# open the graphics file
+
+pngFileOutput <- png(filename = "plot1.png",
+    width = 480, height = 480, units = "px", pointsize = 12,
+    bg = "white")
+
+result <- makeFig1()
+dev.off() # close the PNG file
+
