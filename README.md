@@ -1,5 +1,30 @@
 ## Introduction
 
+This project originally cloned from Roger Peng 
+https://github.com/rdpeng/ExData_Plotting1
+Exploratory Data Analysis.
+
+Included in top directory are 4 .png files, plot1.png, plot2.png, plot3.png, and plot4.png.
+
+These are created by 4 .R files also included: plot1.R, plot2.R, plot3.R, and plot4.R.
+
+That's it.
+
+Here are my plots.
+<h3>Plot1</h3>
+
+![plot1.png](/plot1.png)
+<h3>Plot2</h3>
+![plot2.png](/plot2.png)
+<h3>Plot3</h3>
+![plot3.png](/plot3.png)
+<h3>Plot4</h3>
+![plot4.png](/plot4.png)
+
+
+<h2> Roger Pengs original readme.md follows </h2>
+
+
 This assignment uses data from
 the <a href="http://archive.ics.uci.edu/ml/">UC Irvine Machine
 Learning Repository</a>, a popular repository for machine learning
